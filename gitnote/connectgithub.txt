@@ -1,0 +1,13 @@
+一、远程仓库
+1、目的：将自己的文档提交到github网站进行管理。
+2、教程：http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/001374385852170d9c7adf13c30429b9660d0eb689dd43a000
+
+二、添加远程仓库
+1、关联一个远程库，使用命令：git remote add origin git@server-name:path/repo-name.git 
+注意：server-name:github上的用户
+      repo-name :在github上建立的repository的名字
+	  例子：git remote add origin git@github.com:kongxinling/learngit.git (远程库的名字叫origin)
+	  
+2、关联后使用命令：git push -u origin master 第一次推送master分支所有内容
+
+3、此后每次提交，只需使用命令：git push origin master 推送最新修改
