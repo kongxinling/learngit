@@ -1,3 +1,49 @@
+                   git 的基础知识
+一、创建版本库
+1、新建一个目录： mkdir learngit (pwd查看当前目录）
+2、将目录变为git可以管理的仓库：git init
+3、工作区：创建的 learngit文件夹
+4、版本库：隐藏的 .git 目录， git版本库中存了很多东西，最重要的为stage(或叫index)的暂存区。
+git 为我们的自动创建了第一个分支：master,及指向master的一个指针HEAD.（见文件中的图）
+
+二、把文本添加到版本库
+1、在仓库中创建一个a.txt文本
+2、将文本添加到仓库，添加到暂存区： git add a.txt
+3、把文件提交到仓库，把暂存区的所有内容提交到当前分支： git commit -m "对文件的说明"
+
+三、修改文件后，查看文件修改的地方，查看自己的修改操作
+1、查看仓库当前状态：git status
+2、查看文件被修改的地方：git diff a.txt
+
+四、查看历史记录，回退到自己任意修改过的版本
+1、查看提交历史：	    git log
+   简化结果输出：	    git log --pretty=oneline (输出的第一列为commit id)
+2、回退到上一版本： 	git reset --hard HEAD^
+   一次回退到上上版本： git reset --hard HEAD^^
+3、找到指定版本：       git reset --hard commit id 
+4、查看自己想恢复版本的id 号，即查看自己的操作记录：git reflog
+
+五、在未提交前（commit) 撤销对文件的修改
+1、放弃对工作区的修改： git checkout -- a.txt
+注意：
+（1）a.txt修改后未被放到暂存区（无add操作），直接撤销回到和版本库一模一样的状态
+（2）a.txt修改后被放到暂存区（有add操作），撤销回到添加到暂存区后的状态
+2、撤销暂存区中的修改：
+（1）重新放回工作区： git reset HEAD a.txt
+（2）撤销修改:        git checkout -- a.txt
+3、撤销版本库中的修改：版本回退。
+
+六、删除文件
+1、从文件管理器中删除（commit后）: rm a.txt
+2、从版本库中删除： git rm a.txt
+                    git commit -m "remove txt"
+3、删错了从版本库中恢复： git checkout -- a.txt
+
+
+
+
+                     远程仓库的关联和添加
+
 一、远程仓库
 1、目的：将自己的文档提交到github网站进行管理。
 2、教程：http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/001374385852170d9c7adf13c30429b9660d0eb689dd43a000
@@ -11,3 +57,14 @@
 2、关联后使用命令：git push -u origin master 第一次推送master分支所有内容
 
 3、此后每次提交，只需使用命令：git push origin master 推送最新修改
+
+
+                          分支管理
+一、创建分支：便于自己保存开发过程中的代码
+创建自己的分支，别人看不到自己的分支上所提交的开发过程中的代码，开发完毕后，再一次性合并到原来的分支上，提交到github
+1、查看分支：  git branch
+2、创建分支：  git branch (name)
+3、切换分支：  git checkout (name)
+4、创建和切换分支： git checkout -b (name)
+5、合并某分支a 到当前分支： get merge a
+6、删除分支：   git branch -d (name)						  
