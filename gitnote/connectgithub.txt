@@ -40,8 +40,6 @@ git 为我们的自动创建了第一个分支：master,及指向master的一个
 3、删错了从版本库中恢复： git checkout -- a.txt
 
 
-
-
                      远程仓库的关联和添加
 
 一、远程仓库
@@ -57,6 +55,8 @@ git 为我们的自动创建了第一个分支：master,及指向master的一个
 2、关联后使用命令：git push -u origin master 第一次推送master分支所有内容
 
 3、此后每次提交，只需使用命令：git push origin master 推送最新修改
+
+4、远程仓库克隆：git clone git@github.com:kongxinling/gitskills.git 
 
 
                           分支管理
