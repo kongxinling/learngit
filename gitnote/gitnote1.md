@@ -7,3 +7,4 @@
 
 -  cd a 进入目录，使用git add 和git commit 将要保存的文档提交到仓库
 -  使用git push origin master 将提交到仓库的文件，推送到关联的github官网的相关仓库中。
+## 过程其实很简单
